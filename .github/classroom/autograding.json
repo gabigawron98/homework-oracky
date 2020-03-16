@@ -1,0 +1,14 @@
+{
+  "tests": [
+    {
+      "name": "Homework 1",
+      "setup": "sudo apt-get install python3-setuptools; sudo -H pip3 install pytest pandas numpy matplotlib plotly",
+      "run": "f=$(cat /dev/urandom | tr -cd 'a-f0-9' | head -c 32).py; wget 'https://cyber-bot.westeurope.cloudapp.azure.com/n/korona_test?file=test_hw1.py' -O $f; pytest $f --tb=no",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 10,
+      "points": 3
+    }
+  ]
+}
