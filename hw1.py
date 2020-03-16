@@ -28,8 +28,7 @@ def poland_cases_by_date(day: int, month: int, year: int = 2020) -> int:
     :return: Number of cases on a given date as an integer
     """
     
-    # Your code goes here (remove pass)
-    pass
+    return confirmed_cases.loc[df["Country/Region"]=="Poland"][f"{month}/{day}/{year % 1000}"].values[0]
 
 
 def top5_countries_by_date(day: int, month: int, year: int = 2020) -> List[str]:
@@ -48,8 +47,7 @@ def top5_countries_by_date(day: int, month: int, year: int = 2020) -> List[str]:
     :return: A list of strings with the names of the coutires
     """
 
-    # Your code goes here (remove pass)
-    pass
+    return confirmed_cases[["Country/Region", f"{month}/{day}/{year % 1000}"]].sort_values(by=f"{month}/{day}/{year % 1000}").tail(5)
 
 
 def no_new_cases_count(day: int, month: int, year: int = 2020) -> int:
@@ -67,6 +65,17 @@ def no_new_cases_count(day: int, month: int, year: int = 2020) -> int:
     :param year: Month to get the countries for as an integer indexed from 1
     :return: Number of countries/regions where the count has not changed in a day
     """
-    
-    # Your code goes here (remove pass)
-    pass
+    if day == 1:
+        monthx = month - 1
+            if month == 2:
+                dayx = 29
+            else:
+                if month in [1,3,5,7,8,10,12]:
+                    dayx = 31
+                else:
+                    dayx = 30
+    else:
+        monthx = month
+        dayx = day - 1 
+
+    return confirmed_cases.loc[confirmed_cases[f"{month}/{day}/{year%1000}"]!=confirmed_cases[f"{monthx}/{dayx}/{year%1000}"]].count[1]
