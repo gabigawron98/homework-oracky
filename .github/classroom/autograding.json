@@ -9,6 +9,26 @@
       "comparison": "included",
       "timeout": 10,
       "points": 3
+    },
+    {
+      "name": "Homework 2 Task 1",
+      "setup": "sudo apt-get install python3-setuptools; sudo -H pip3 install pytest pandas numpy matplotlib plotly wheel",
+      "run": "wget 'https://cyber-bot.westeurope.cloudapp.azure.com/n/korona_test?file=test_hw2_task1.sh' -O run.sh; chmod +x run.sh;./run.sh",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
+    },
+    {
+      "name": "Homework 2 Task 2",
+      "setup": "sudo apt-get install python3-setuptools; sudo -H pip3 install pytest pandas numpy matplotlib plotly wheel",
+      "run": "wget 'https://cyber-bot.westeurope.cloudapp.azure.com/n/korona_test?file=test_hw2_task2.sh' -O run.sh; chmod +x run.sh;./run.sh",
+      "input": "",
+      "output": "",
+      "comparison": "included",
+      "timeout": 5,
+      "points": 1
     }
   ]
 }
