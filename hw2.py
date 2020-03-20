@@ -41,7 +41,7 @@ def countries_with_no_deaths_count(date: datetime.date) -> int:
     """
     
     count = 0
-    for i, region in enumerate(dfC):
+    for i in range(len(dfC)):
         if dfC[format_date(date)][i] != 0 and dfD[format_date(date)][i] == 0:
             count += 1
     return count
@@ -69,7 +69,9 @@ def more_cured_than_deaths_indices(date: datetime.date) -> List[int]:
     """
     
     indices = []
-    for i, region in enumerate(dfR):
+    for i in range(len(dfC)):
         if dfR[format_date(date)][i] > dfD[format_date(date)][i]:
             indices.append(i)
     return indices 
+
+
