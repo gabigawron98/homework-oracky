@@ -40,8 +40,11 @@ def countries_with_no_deaths_count(date: datetime.date) -> int:
     :return: Number of countries with no deaths but with active cases on a given date as an integer
     """
     
-    # Your code goes here
-    pass
+    count = 0
+    for i, region in enumerate(dfC):
+        if dfC[format_date(date)][i] != 0 and dfD[format_date(date)][i] == 0:
+            count += 1
+    return count
 
 
 def more_cured_than_deaths_indices(date: datetime.date) -> List[int]:
@@ -65,5 +68,8 @@ def more_cured_than_deaths_indices(date: datetime.date) -> List[int]:
     :return: A List of integers containing indices of countries which had more cured cases than deaths on a given date
     """
     
-    # Your code goes here
-    pass
+    indices = []
+    for i, region in enumerate(dfR):
+        if dfR[format_date(date)][i] > dfD[format_date(date)][i]:
+            indices.append(i)
+    return indices 
